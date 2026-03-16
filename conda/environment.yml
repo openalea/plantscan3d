@@ -1,0 +1,16 @@
+name: plantscan3d_dev
+channels:
+  - conda-forge
+  - openalea3/label/rc
+dependencies:
+  - python
+  - openalea.plantgl
+  - openalea.mtg
+  - pyqglviewer
+  - qt
+  - pyqt
+  - matplotlib-base
+  - pip
+  - pip:
+      - -e '..[test,dev,doc]'
+

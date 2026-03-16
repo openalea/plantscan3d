@@ -1,0 +1,17 @@
+[report]
+exclude_lines =
+    pragma: no cover
+omit =
+    *tests*
+show_missing = True
+
+[html]
+title = openalea.plantscan3d coverage report
+directory = build/htmlcov
+
+[run]
+source = openalea.plantscan3d
+omit =
+        *__init__*
+        *test*
+

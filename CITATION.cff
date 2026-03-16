@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Doe"
+  given-names: "Jane"
+- family-names: "Smith"
+  given-names: "John"
+  orcid: "https://orcid.org/0000-0000-0000-0000"
+title: "plantscan3d : An open-source GUI for reconstructing plant 3D architecture from laser scans."
+version: x.y.z
+date-released: 2099-12-31
+url: "https://github.com/openalea/plantscan3d"
+
+preferred-citation:
+    type: article
+    authors:
+    - family-names: "Doe"
+      given-names: "Jane"
+    - family-names: "Smith"
+      given-names: "John"
+      orcid: "https://orcid.org/0000-0000-0000-0000"
+
+    title: "plantscan3d : An open-source GUI for reconstructing plant 3D architecture from laser scans."
+    doi: ""
+    journal: ""
+    publisher: ""
+    abstract: ""
+    eprint: ""
+    url: ""
+    elocation-id: ""
+    year: 2099
