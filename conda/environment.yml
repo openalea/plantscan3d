@@ -1,7 +1,9 @@
 name: plantscan3d_dev
 channels:
   - conda-forge
+  - openalea3
   - openalea3/label/rc
+  - openalea3/label/dev
 dependencies:
   - python
   - openalea.plantgl
@@ -13,4 +15,3 @@ dependencies:
   - pip
   - pip:
       - -e '..[test,dev,doc]'
-

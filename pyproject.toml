@@ -10,7 +10,7 @@ where = ["src"]
 include-package-data = false # force explicit declaration of data (disable automatic inclusion)
 
 [tool.setuptools.package-data]
-"openalea.pkg_name" = ["data/**/*"]
+"openalea.plantscan3d" = ['*.ui', '*.rc', '*.qrc', '*.conf', '*.png']
 
 # enable dynamic version based on git tags
 [tool.setuptools_scm]
@@ -38,6 +38,7 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
   "Topic :: Scientific/Engineering",
 ]
+keywords = ["OpenAlea", "Plant Architecture", "MTG", "FSPM"]
 
 # you can list here all dependencies that are pip-instalable, and that have a name identical to the one used by conda (to allow reuse of this list in meta.yaml)
 # If conda name is different, please do not declare the pip name, and declare conda name in the next section
@@ -79,6 +80,5 @@ Changelog = "https://github.com/openalea/plantscan3d/releases"
 [project.entry-points."wralea"]
 "plantscan3d" = "openalea.plantscan3d_wralea"
 
-[project.scripts]
+[project.gui-scripts]
 "plantscan3d" = "openalea.plantscan3d.main_window:main"
-"cpfg2lpy" = "openalea.lpy.cpfg_compat.cpfg2lpy:main"
