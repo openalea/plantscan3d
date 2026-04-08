@@ -374,8 +374,8 @@ class MainViewer(QGLViewer):
 
         self.currenttagname = "ScaleTag"
 
-        # if not os.path.exists(get_shared_data("mtg")):
-        #            self.window().menuLoad.setEnabled(False)
+        if not os.path.exists(get_shared_data("mtg")):
+            self.window().menuLoad.setEnabled(False)
 
         self.propertyeditor = None
 

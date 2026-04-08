@@ -10,7 +10,7 @@ where = ["src"]
 include-package-data = false # force explicit declaration of data (disable automatic inclusion)
 
 [tool.setuptools.package-data]
-"openalea.plantscan3d" = ['*.ui', '*.rc', '*.qrc', '*.conf', '*.png']
+"openalea.plantscan3d" = ["data/**/*", '*.ui', '*.rc', '*.qrc', '*.conf', '*.png']
 
 # enable dynamic version based on git tags
 [tool.setuptools_scm]

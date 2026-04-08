@@ -39,8 +39,8 @@ class MainWindow(QMainWindow, main_window_ui.Ui_MainWindow):
         QMainWindow.__init__(self, parent)
         main_window_ui.Ui_MainWindow.__init__(self)
         self.setupUi(self)
-        if not os.path.exists(get_shared_data("mtg")):
-            self.menuLoad.setEnabled(False)
+        # if not os.path.exists(get_shared_data("mtg")):
+        #    self.menuLoad.setEnabled(False)
         self.pointSizeSlider.setValue(self.mtgeditor.pointinfo.pointWidth)
         self.nodeSizeSlider.setValue(self.mtgeditor.nodeWidth)
         self.actionOpenMTG.triggered.connect(self.mtgeditor.openMTG)
