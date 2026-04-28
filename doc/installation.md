@@ -32,8 +32,8 @@ cd plantscan3d/test; pytest
 
 ```bash
 # Install dependency with conda
-mamba env create -n phm -f conda/environment.yml
-mamba activate plantscan3d
+mamba env create -f conda/environment.yml
+mamba activate plantscan3d_dev
 
 # Clone plantscan3d and install
 git clone https://github.com/openalea/plantscan3d.git

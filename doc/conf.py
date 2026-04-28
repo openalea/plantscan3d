@@ -3,13 +3,13 @@ import os
 import sys
 from importlib.metadata import metadata
 
-pkg_name='plantscan3d'
-meta = metadata('openalea.' + pkg_name)
+pkg_name = "plantscan3d"
+meta = metadata("openalea." + pkg_name)
 release = meta.get("version")
 # for example take major/minor
-version = ".".join(release.split('.')[:3])
-author = meta['Author'].split(',')[0] + "et al."
-desc = meta['Summary']
+version = ".".join(release.split(".")[:3])
+author = meta["Author"].split(",")[0] + "et al."
+desc = meta["Summary"]
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -39,8 +39,15 @@ extensions = [
 
 
 nbsphinx_thumbnails = {
-    'examples/Segmentation': '_static/segmentation_thumb.png',
+    "userguide/clean_process": "_static/no_wire.png",
+    "userguide/reconstruction": "_static/node_subtree.gif",
+    "userguide/base": "_static/Point_cloud_MTG.png",
+    "userguide/database": "_static/browse_item.png",
 }
+
+myst_enable_extensions = [
+    "colon_fence",
+]
 
 nbsphinx_allow_errors = True
 # Add any paths that contain templates here, relative to this directory.
@@ -136,7 +143,9 @@ latex_documents = [
 # -- Options for manual page output ---------------------------------------
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [(master_doc, "openalea.plantscan3d", "plantscan3d Documentation", [author], 1)]
+man_pages = [
+    (master_doc, "openalea.plantscan3d", "plantscan3d Documentation", [author], 1)
+]
 
 # -- Options for Texinfo output -------------------------------------------
 # Grouping the document tree into Texinfo files. List of tuples

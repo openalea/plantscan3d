@@ -2,7 +2,7 @@ Cleaning Point cloud
 ####################
 
 This section explain how to use the tools to clean a point cloud and segment it.
-All algorithms not delete directly the points but select its with the selection system of PlanScan3d (see also: :ref:`selection-doc-ref`).
+All algorithms do not delete directly the points but put it within the selection system of PlanScan3d.
 
 .. image:: /images/treatment/treatment.png
     :scale: 40
@@ -32,7 +32,7 @@ You can notice that a few points above the soil are select, this is normal becau
 | .. image:: /images/treatment/treatment.png | .. image:: /images/treatment/soil_deleted.png |
 +--------------------------------------------+-----------------------------------------------+
 
-You can also test this algorithm in a python script (See: :download:`point cloud used of this example </scans_example/winter.ply>`)
+You can also test this algorithm in a python script (See: :download:`point cloud used of this example </../src/openalea/plantscan3d/data/scans_example/winter.ply>`)
 
 .. code-block:: python
 
@@ -81,7 +81,7 @@ The default value is 5 percent but I recommend to set 3 or 2 percent because 5 p
 | .. image:: /images/treatment/isolate_points.png | .. image:: /images/treatment/no_isolate_points.png |
 +-------------------------------------------------+----------------------------------------------------+
 
-You can also test this algorithm in a python script (See: :download:`point cloud used of this example </scans_example/winter_step_01.ply>`)
+You can also test this algorithm in a python script (See: :download:`point cloud used of this example </../src/openalea/plantscan3d/data/scans_example/winter_step_01.ply>`)
 
 .. code-block:: python
 
@@ -131,7 +131,7 @@ The parameters of this algorithm are:
 | .. image:: /images/treatment/wire.png | .. image:: /images/treatment/no_wire.png |
 +---------------------------------------+------------------------------------------+
 
-You can also test this algorithm in a python script (See: :download:`point cloud used of this example </scans_example/winter_step_02.ply>`)
+You can also test this algorithm in a python script (See: :download:`point cloud used of this example </../src/openalea/plantscan3d/data/scans_example/winter_step_02.ply>`)
 
 .. code-block:: python
 
@@ -189,7 +189,7 @@ Finally, the algorithm selects the cylinder with the best score.
 | .. image:: /images/treatment/pole_select_pole.png | .. image:: /images/treatment/pole_pole_selected.png |
 +---------------------------------------------------+-----------------------------------------------------+
 
-You can also use this algorithm in a Python script (See: :download:`point cloud used of this example </scans_example/winter_step_03.ply>`)
+You can also use this algorithm in a Python script (See: :download:`point cloud used of this example </../src/openalea/plantscan3d/data/scans_example/winter_step_03.ply>`)
 
 The parameters are:
     * The radius of the cylinder created by the Ransac.
@@ -228,7 +228,7 @@ Tree1                                      Tree2                                
 .. image:: /images/treatment/segment_1.png .. image:: /images/treatment/segment_2.png .. image:: /images/treatment/segment_3.png .. image:: /images/treatment/segment_4.png .. image:: /images/treatment/segment_5.png
 ========================================== ========================================== ========================================== ========================================== ==========================================
 
-You can also test this algorithm in a python script (See: :download:`point cloud used of this example </scans_example/winter_step_04.ply>`)
+You can also test this algorithm in a python script (See: :download:`point cloud used of this example </../src/openalea/plantscan3d/data/scans_example/winter_step_04.ply>`)
 
 .. code-block:: python
 

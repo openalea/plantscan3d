@@ -5,7 +5,7 @@ This section is a step-by-step guide for the process of the reconstruction of th
 from a point cloud.
 
 The guide use a 3d point cloud of a branch scanned using a Riegl VZ400 LiDAR as an example. 
-It is available for download :download:`here. </scans_example/A3B4.asc>`
+It is available for download :download:`here. </../src/openalea/plantscan3d/data/scans_example/A3B4.asc>`
 The branch looks as follows after import in plantscan3d:
 
 .. figure:: /images/base/Point_cloud.png
@@ -36,22 +36,6 @@ a key step because it will help the reconstruction algorithm. The
 objective here is to contract the points to reduce the noise while
 keeping small structures (a high contraction deforms the structure).
 
-You can also test this algorithm in a python script (See: :download:`point cloud used of this example </scans_example/A3B4.asc>`)
-
-.. code-block:: python
-
-   from openalea.plantgl.all import *
-   scene = Scene('A3B4.asc')
-   points = scene[0].geometry.pointList
-
-   mini, maxi = points.pointList.getZMinAndMaxIndex()
-   zdist = points.pointList[maxi].z - points.pointList[mini].z
-   radius = zdist / 100.
-   rnbgs = estimateRNeigbor(radius) 
-   points.pointList = centroids_of_groups(points.pointList, rnbgs)
-   setPoints(points, True)
-
-
 Topology reconstruction
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -65,21 +49,6 @@ point so it is close to the root of the structure. Then, use
 ``right-click->T``, or more simply select the point and press ``T``. It
 will stick the node to the nearest points.
 
-You can also test this algorithm in a python script
-
-.. code-block:: python
-
-   from openalea.plantgl.all import *
-
-   center = points.getCenter()
-   pminid,pmaxid = points.getZMinAndMaxIndex()
-   zmin = points[pminid].z
-   zmax = points[pmaxid].z
-   initp = center
-   initp.z = zmin
-   root = points.findClosest(initp)[0]
-
-
 Skeletization
 '''''''''''''
 
@@ -89,53 +58,8 @@ is recommended to use the algorithm from Xu et al. Then, enter the
 number of nodes required from the root until the top of the structure.
 For example 50 is a good approximation for a branch.
 
-You can also test this algorithm in a python script
-
-.. code-block:: python
-
-   from openalea.plantgl.all import *
-   import openalea.plantscan3d.mtgmanip as mm
-   from openalea.plantscan3d.xumethod import xu_method
-
-   binratio = 50
-   k = 20
-   mtg = mm.initialize_mtg(root)
-   zdist = zmax-zmin
-   binlength = zdist / binratio
-
-   vtx = list(mtg.vertices(mtg.max_scale()))
-   startfrom = vtx[0]
-   mtg = xu_method(mtg, startfrom, points, binlength, k)
-
-
 Now save the resulting MTG ``File->Save MTG``, or press ``ctrl+S``.
 Please save frequently in case the application crash.
-
-.. code-block:: python
-
-   from copy import deepcopy
-   from openalea.plantscan3d.serial import writeMTGfile
-
-   new_mtg = deepcopy(mtg)
-   pdic = new_mtg.property('position')
-   xx = {}
-   yy = {}
-   zz = {}
-  
-   for i,v in pdic.items():
-      xx[i] = v.x
-      yy[i] = v.y
-      zz[i] = v.z
-  
-   new_mtg.add_property('XX')
-   new_mtg.add_property('YY')
-   new_mtg.add_property('ZZ')
-   new_mtg.property('XX').update(xx)
-   new_mtg.property('YY').update(yy)
-   new_mtg.property('ZZ').update(zz)
-   del new_mtg.properties()['position']
-
-   writeMTGfile('A3B4.mtg', new_mtg)
 
 Display helpers
 '''''''''''''''
@@ -216,12 +140,6 @@ Smoothing the MTG
 
 The MTG can be smoothed spatially using
 ``Reconstruction->Skeleton->Smooth``
-
-.. code-block:: python
-
-   import openalea.plantscan3d.mtgmanip as mm
-
-   mm.gaussian_filter(mtg, 'position')
 
 Geometry estimation
 ^^^^^^^^^^^^^^^^^^^

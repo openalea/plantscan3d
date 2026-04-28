@@ -18,7 +18,7 @@ You can import a point cloud from a LiDAR scan using
    Point cloud
 
 You can download the example file here:
-:download:`Branch point cloud. </scans_example/A3B4.asc>`
+:download:`Branch point cloud. </../src/openalea/plantscan3d/data/scans_example/A3B4.asc>`
 
 
 Topology
@@ -33,5 +33,5 @@ You can import the plant toology by importing an mtg file using
    Topology
 
 You can download the example file here:
-:download:`Branch MTG. </scans_example/A3B4.mtg>`
+:download:`Branch MTG. </../src/openalea/plantscan3d/data/scans_example/A3B4.mtg>`
 
