@@ -1,3 +1,2 @@
-import pytest
+from openalea.plantscan3d import *
 
-from plantscan3d import plantscan3d
