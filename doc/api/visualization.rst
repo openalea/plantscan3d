@@ -1,9 +1,9 @@
 .. currentmodule:: openalea.plantscan3d
 
-visualization
+Visualization
 =============
 
-.. automodule:: openalea.plantscan3d.api.visualization
+.. automodule:: openalea.plantscan3d.visualization
     :members:
     :undoc-members:
     :inherited-members:

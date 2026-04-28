@@ -1,6 +1,6 @@
 .. currentmodule:: openalea.plantscan3d
 
-xu reconstruction method
+Xu reconstruction method
 ========================
 
 .. automodule:: openalea.plantscan3d.xumethod

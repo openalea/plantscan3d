@@ -10,7 +10,7 @@ from openalea.plantgl.all import (
     pointset_orientation,
 )
 
-from ..mtgmanip import gaussian_filter, mtg2pgltree, pipemodel
+from .mtgmanip import gaussian_filter, mtg2pgltree, pipemodel
 from .processpoints import (
     filter_points,
     load_points,

@@ -10,7 +10,14 @@ where = ["src"]
 include-package-data = false # force explicit declaration of data (disable automatic inclusion)
 
 [tool.setuptools.package-data]
-"openalea.plantscan3d" = ["data/**/*", '*.ui', '*.rc', '*.qrc', '*.conf', '*.png']
+"openalea.plantscan3d" = [
+  "data/**/*",
+  '*.ui',
+  '*.rc',
+  '*.qrc',
+  '*.conf',
+  '*.png',
+]
 
 # enable dynamic version based on git tags
 [tool.setuptools_scm]
@@ -18,7 +25,7 @@ include-package-data = false # force explicit declaration of data (disable autom
 [project]
 name = "openalea.plantscan3d"
 authors = [{ name = "Frederic Boudon" }]
-description = "FSPM tools for OpenAlea"
+description = "An open-source editor for reconstructing 3D plant architecture from laser scans."
 readme = "README.md"
 license = "CECILL-C"
 license-files = ["LICEN[CS]E*"]

@@ -1,6 +1,6 @@
 .. currentmodule:: openalea.plantscan3d
 
-livny reconstruction method
+Livny reconstruction method
 ===========================
 
 .. automodule:: openalea.plantscan3d.livnymethod

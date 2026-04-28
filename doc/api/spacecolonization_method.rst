@@ -1,6 +1,6 @@
 .. currentmodule:: openalea.plantscan3d
 
-space colonization methods
+Space colonization methods
 ==========================
 
 .. automodule:: openalea.plantscan3d.sca

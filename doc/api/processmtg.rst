@@ -1,9 +1,9 @@
 .. currentmodule:: openalea.plantscan3d
 
-processmtg
-==========
+Process MTG
+===========
 
-.. automodule:: openalea.plantscan3d.api.processmtg
+.. automodule:: openalea.plantscan3d.processmtg
     :members:
     :undoc-members:
     :inherited-members:

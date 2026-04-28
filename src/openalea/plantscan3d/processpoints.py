@@ -11,10 +11,10 @@ from openalea.plantgl.all import (
     r_neighborhoods,
 )
 
-from ..livnymethod import livny_method_mtg
-from ..mtgmanip import initialize_mtg
-from ..sca import adaptivespacecolonization_method, spacecolonization_method
-from ..xumethod import graphcolonization_method, xu_method
+from .livnymethod import livny_method_mtg
+from .mtgmanip import initialize_mtg
+from .sca import adaptivespacecolonization_method, spacecolonization_method
+from .xumethod import graphcolonization_method, xu_method
 
 
 def load_points(filename):

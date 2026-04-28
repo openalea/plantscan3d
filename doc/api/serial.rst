@@ -1,6 +1,6 @@
 .. currentmodule:: openalea.plantscan3d
 
-serial
+Serial
 ======
 
 .. automodule:: openalea.plantscan3d.serial

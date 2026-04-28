@@ -1,9 +1,9 @@
 .. currentmodule:: openalea.plantscan3d
 
-processpoints
-=============
+Process points
+==============
 
-.. automodule:: openalea.plantscan3d.api.processpoints
+.. automodule:: openalea.plantscan3d.processpoints
     :members:
     :undoc-members:
     :inherited-members:

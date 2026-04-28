@@ -1,6 +1,6 @@
 .. currentmodule:: openalea.plantscan3d
 
-mtgmanip
+MTGmanip
 ========
 
 .. automodule:: openalea.plantscan3d.mtgmanip
