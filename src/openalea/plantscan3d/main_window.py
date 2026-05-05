@@ -23,7 +23,7 @@ if not py2exe_release:
     cui.check_rc_generation(join(ldir, "plantscan3d.qrc"))
 
 from . import main_window_ui
-from .__version__ import version as psc_version
+from .__version__ import __version__ as psc_version
 from .database import db_connection, dbeditor
 from .module_loader import ModuleLoader
 from .segmenteditor import SegmentEditor
