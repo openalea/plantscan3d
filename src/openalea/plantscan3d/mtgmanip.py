@@ -2,6 +2,21 @@ from openalea.plantgl.all import *
 
 
 def initialize_mtg(root, nodelabel="N"):
+    """
+    Initialize a new MTG with a single node at the given position.
+
+    Parameters
+    ~~~~~~~~~~
+    root: Vector3
+        Position of the root node.
+    nodelabel: str
+        Label for the nodes (default "N").
+
+    Returns
+    ~~~~~~~
+    openalea.mtg.MTG
+        New MTG with one node.
+    """
     from openalea.mtg import MTG
 
     mtg = MTG()
@@ -15,6 +30,21 @@ def initialize_mtg(root, nodelabel="N"):
 
 
 def mtg2pgltree(mtg):
+    """
+    Convert an MTG to a PlantGL tree representation.
+
+    Parameters
+    ~~~~~~~~~~
+    mtg: openalea.mtg.MTG
+        MTG object to convert.
+
+    Returns
+    ~~~~~~~
+    tuple
+        (nodes, parents, vertex2node) where nodes is a list of positions,
+        parents is a list of parent indices, and vertex2node maps MTG
+        vertex ids to list indices.
+    """
     vertices = mtg.vertices(scale=mtg.max_scale())
     vertex2node = dict([(vid, i) for i, vid in enumerate(vertices)])
     positions = mtg.property("position")
@@ -36,6 +66,34 @@ def pgltree2mtg(
     angle_between_trunk_and_lateral=60,
     nodelabel="N",
 ):
+    """
+    Convert a PlantGL tree representation back into an MTG.
+
+    Parameters
+    ~~~~~~~~~~
+    mtg: openalea.mtg.MTG
+        MTG object to add nodes to.
+    startfrom: int
+        Starting node id in the MTG.
+    parents: list of int
+        Parent indices for each node in the tree.
+    positions: list of Vector3
+        Positions of each node.
+    radii: list of float or None
+        Radii of each node. If None, no radius property is set.
+    filter_short_branch: bool
+        If True, remove branches with no children.
+    angle_between_trunk_and_lateral: float
+        Angle threshold in degrees to determine edge type between
+        trunk and lateral branches.
+    nodelabel: str
+        Label for the nodes (default "N").
+
+    Returns
+    ~~~~~~~
+    openalea.mtg.MTG
+        MTG with the tree added.
+    """
     from math import acos, degrees
 
     rootpos = Vector3(mtg.property("position")[startfrom])
@@ -103,12 +161,44 @@ def pgltree2mtg(
 
 
 def gaussian_weight(x, var):
+    """
+    Compute a Gaussian weight at a given value.
+
+    Parameters
+    ~~~~~~~~~~
+    x: float
+        Input value.
+    var: float
+        Variance of the Gaussian distribution.
+
+    Returns
+    ~~~~~~~
+    float
+        Gaussian weight exp(-x²/(2*var)) / sqrt(2*pi*var²).
+    """
     from math import exp, pi, sqrt
 
     return exp(-(x**2) / (2 * var)) / sqrt(2 * pi * var * var)
 
 
 def gaussian_filter(mtg, propname, considerapicalonly=True):
+    """
+    Apply a Gaussian filter to smooth a property along the MTG.
+
+    Parameters
+    ~~~~~~~~~~
+    mtg: openalea.mtg.MTG
+        MTG object.
+    propname: str
+        Name of the property to filter.
+    considerapicalonly: bool
+        If True, only consider apical (edge_type "<") children.
+        Default to True.
+
+    Returns
+    ~~~~~~~
+        None. The property is updated in-place.
+    """
     prop = mtg.property(propname)
     nprop = dict()
     gw0 = gaussian_weight(0, 1)
@@ -132,6 +222,21 @@ def gaussian_filter(mtg, propname, considerapicalonly=True):
 
 
 def threshold_filter(mtg, propname):
+    """
+    Apply a threshold filter to a property, preventing values from
+    increasing along the traversal from root to leaves.
+
+    Parameters
+    ~~~~~~~~~~
+    mtg: openalea.mtg.MTG
+        MTG object.
+    propname: str
+        Name of the property to filter.
+
+    Returns
+    ~~~~~~~
+        None. The property is updated in-place.
+    """
     from openalea.mtg.traversal import iter_mtg2
 
     prop = mtg.property(propname)
@@ -148,6 +253,22 @@ def threshold_filter(mtg, propname):
 
 
 def get_first_param_value(mtg, propname):
+    """
+    Get the first non-None property value at the maximum scale.
+
+    Parameters
+    ~~~~~~~~~~
+    mtg: openalea.mtg.MTG
+        MTG object.
+    propname: str
+        Name of the property.
+
+    Returns
+    ~~~~~~~
+    object or None
+        First non-None property value found at the maximum scale,
+        or None if no such value exists.
+    """
     from openalea.mtg.traversal import iter_mtg2
 
     scale = mtg.max_scale()

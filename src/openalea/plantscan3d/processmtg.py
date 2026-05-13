@@ -212,6 +212,8 @@ def determine_radius(g, points, maxmethod=True, radiusproperty="radius"):
 
 
 class Line:
+    """Internal class to represent a line with 'position', 'direction' and 'extend' attributes."""
+
     def __init__(self, position, direction, extend):
         self.position = position
         self.direction = direction
@@ -230,6 +232,7 @@ class Line:
 
     @staticmethod
     def estimate(positions):
+        """Method to estimate a line from a list of points."""
         idx = range(len(positions))
         pos = centroid_of_group(positions, idx)
         dir = direction(pointset_orientation(positions, idx))
@@ -590,6 +593,24 @@ def axis_subpart_angle(g, axisroot, beglengthratio, endlengthratio, refdir=(0, 0
 
 
 def axis_nodes_normedposition(g, axisroot):
+    """
+    Compute the normalized position of each node along an axis.
+
+    Parameters
+    ~~~~~~~~~~
+    g: openalea.mtg.MTG
+        MTG object.
+    axisroot: int
+        Root node of the axis to compute positions for.
+
+    Returns
+    ~~~~~~~
+    list of tuple
+        List of (node_id, normalized_position) where normalized_position
+        is the cumulative length from the axis root divided by the total
+        axis length. The parent of the axis root is prepended with
+        position 0 if it exists.
+    """
     data = [(node, node_length(g, node)) for node in g.Axis(axisroot)]
     length = 0
     for i in range(len(data)):

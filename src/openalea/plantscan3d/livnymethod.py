@@ -2,6 +2,25 @@ from openalea.plantgl.all import *
 
 
 def livny_contraction(pointList, root, connectall=True, adjacencies=None):
+    """
+    Perform a single Livny contraction step on a point cloud skeleton.
+
+    Parameters
+    ~~~~~~~~~~
+    pointList: list of Vector3
+        Input points representing the skeleton.
+    root: int
+        Index of the root point.
+    connectall: bool
+        If True, ensure all components are connected.
+    adjacencies: list of list of int or None
+        Precomputed adjacency lists. If None, computed from k=7 nearest neighbours.
+
+    Returns
+    ~~~~~~~
+    tuple
+        (newPointList, parents, weights) after contraction.
+    """
     if adjacencies is None:
         adjacencies = k_closest_points_from_ann(pointList, 7, True)
         if connectall:
@@ -22,6 +41,29 @@ def livny_method(
     maxfiltering=10,
     minedgeratio=0.15,
 ):
+    """
+    Reconstruct a tree skeleton using the Livny method.
+
+    Parameters
+    ~~~~~~~~~~
+    pointList: list of Vector3
+        Input point cloud.
+    root: int
+        Index of the root point.
+    connectall: bool
+        If True, ensure all components are connected.
+    nbcontractionsteps: int
+        Number of contraction iterations.
+    maxfiltering: int
+        Maximum number of node merging passes.
+    minedgeratio: float
+        Minimum edge length ratio for filtering short edges.
+
+    Returns
+    ~~~~~~~
+    tuple
+        (pointList, parents, radii) of the reconstructed skeleton.
+    """
     firstPointList = pointList
     for i in range(nbcontractionsteps):
         pointList, parents, weights = livny_contraction(pointList, root, connectall)
@@ -112,6 +154,31 @@ def livny_method_mtg(
     filter_short_branch=False,
     angle_between_trunk_and_lateral=60,
 ):
+    """
+    Reconstruct a tree skeleton using Livny's method and add it to an MTG.
+
+    Parameters
+    ~~~~~~~~~~
+    mtg: openalea.mtg.MTG
+        MTG object to add the reconstructed tree to.
+    startfrom: int
+        Starting node id in the MTG.
+    pointList: list of Vector3
+        Input point cloud.
+    nbcontractionsteps: int
+        Number of contraction iterations.
+    maxfiltering: int
+        Maximum number of node merging passes.
+    filter_short_branch: bool
+        If True, remove branches with no children.
+    angle_between_trunk_and_lateral: float
+        Angle threshold in degrees for edge type determination.
+
+    Returns
+    ~~~~~~~
+    openalea.mtg.MTG
+        MTG of the reconstructed tree.
+    """
     from .mtgmanip import pgltree2mtg
 
     connect_all_points = False if mtg.nb_vertices(mtg.max_scale()) > 1 else True
