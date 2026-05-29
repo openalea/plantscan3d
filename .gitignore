@@ -1,76 +1,89 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
 *.py[cod]
-
+.DS_Store
 # C extensions
-build-scons
 *.so
-*.dll
-*.dblite
 
-# Distribution / packaging
-.Python
-env/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-*.egg-info/
-.installed.cfg
+# Packages
 *.egg
-
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+*.egg-info
+build
+eggs
+.eggs
+parts
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+MANIFEST
 
 # Installer logs
 pip-log.txt
-pip-delete-this-directory.txt
+npm-debug.log
+pip-selfcheck.json
 
 # Unit test / coverage reports
-htmlcov/
-.tox/
 .coverage
-.coverage.*
-.cache
+.tox
 nosetests.xml
-coverage.xml
-*,cover
-.hypothesis/
+htmlcov
+.cache
+.pytest_cache
+.mypy_cache
 
 # Translations
 *.mo
-*.pot
 
-# Django stuff:
-*.log
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
 
-# Sphinx documentation
-docs/_build/
-doc/build/
-doc/source/_build
+# SQLite
+test_exp_framework
 
-# PyBuilder
-target/
+# npm
+node_modules/
 
-#Ipython Notebook
-.ipynb_checkpoints
+# dolphin
+.directory
+libpeerconnection.log
 
-# JetBrains
-.idea
-*_ui.py
-*_rc.py
-.plantscan3d.xml
-.qglviewer.xml
+# setuptools
+dist
 
-# Various
-.DS_Store
+# IDE Files
+atlassian-ide-plugin.xml
+.idea/
+*.swp
+*.kate-swp
+.ropeproject/
+
+# Python3 Venv Files
+.venv/
+bin/
+include/
+lib/
+lib64
+pyvenv.cfg
+share/
+venv/
+.python-version
+
+# Cython
+*.c
+
+# Emacs backup
+*~
+
+# VSCode
+/.vscode
+
+# Automatically generated files
+docs/preconvert
+site/
+out
+
+# Sphinx
+_build

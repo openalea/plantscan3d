@@ -1,0 +1,23 @@
+{
+  "template": "https://github.com/openalea/cookiecutter-openalea",
+  "commit": "3c9c14f6b7964b5493c1eb80ea1cbd40af6c3d1d",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "full_name": "Frederic Boudon",
+      "email": "frederique.boudon@cirad.fr",
+      "github_username": "openalea",
+      "project_name": "plantscan3d",
+      "project_slug": "plantscan3d",
+      "description": "An open-source GUI for reconstructing plant 3D architecture from laser scans.",
+      "pure_python": true,
+      "version": "0.0.1",
+      "_copy_without_render": [
+        ".github/workflows/openalea_ci.yml"
+      ],
+      "_template": "https://github.com/openalea/cookiecutter-openalea",
+      "_commit": "3c9c14f6b7964b5493c1eb80ea1cbd40af6c3d1d"
+    }
+  },
+  "directory": null
+}
