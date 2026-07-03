@@ -34,20 +34,20 @@ def compile_rc(rcfname):
 def check_ui_generation(uifname):
     """ check if a py file should regenerated from a ui """
     pyfname = get_uifnames_from(uifname)
-    if ( os.path.exists(uifname) and 
-         not os.path.exists(pyfname) or
-         (os.access(pyfname,os.F_OK|os.W_OK) and
-         os.stat(pyfname).st_mtime < os.stat(uifname).st_mtime )) :
+    if ( os.path.exists(uifname) and
+         ( not os.path.exists(pyfname) or
+           (os.access(pyfname,os.F_OK|os.W_OK) and
+            os.stat(pyfname).st_mtime < os.stat(uifname).st_mtime ))) :
          print('Generate Ui')
          compile_ui(uifname)
 
 def check_rc_generation(rcfname):
     """ check if a py file should regenerated from a Resource file """
     pyfname = get_rcfnames_from(rcfname)
-    if (os.path.exists(rcfname) and 
-        not os.path.exists(pyfname) or
-        (os.access(pyfname,os.F_OK|os.W_OK) and
-        os.stat(pyfname).st_mtime < os.stat(rcfname).st_mtime )) :
+    if ( os.path.exists(rcfname) and
+         ( not os.path.exists(pyfname) or
+           (os.access(pyfname,os.F_OK|os.W_OK) and
+            os.stat(pyfname).st_mtime < os.stat(rcfname).st_mtime ))) :
         print('Generate Rc')
         compile_rc(rcfname)
 
